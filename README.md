@@ -1,2 +1,2 @@
 # mq-sqlite
-mq facade for golang
+dynamicgo/mq sqlite backend
