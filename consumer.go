@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"baas.tech/wallet/mq"
+	"github.com/dynamicgo/mq"
 	"github.com/dynamicgo/slf4go"
 	goleveldb "github.com/syndtr/goleveldb/leveldb"
 )

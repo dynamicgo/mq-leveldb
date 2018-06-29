@@ -6,7 +6,7 @@ import (
 
 	"github.com/dynamicgo/slf4go"
 
-	"baas.tech/wallet/mq"
+	"github.com/dynamicgo/mq"
 	goleveldb "github.com/syndtr/goleveldb/leveldb"
 )
 

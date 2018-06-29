@@ -11,8 +11,8 @@ import (
 
 	"github.com/dynamicgo/slf4go"
 
-	"baas.tech/wallet/mq"
 	"github.com/dynamicgo/go-config"
+	"github.com/dynamicgo/mq"
 	goleveldb "github.com/syndtr/goleveldb/leveldb"
 )
 

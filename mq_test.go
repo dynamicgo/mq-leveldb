@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"baas.tech/wallet/mq"
+	"github.com/dynamicgo/mq"
 
 	config "github.com/dynamicgo/go-config"
 	"github.com/dynamicgo/go-config/source/memory"
