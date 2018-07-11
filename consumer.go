@@ -66,7 +66,7 @@ func newConsumer(db *goleveldb.DB, topic, name string, cached int) (mq.Consumer,
 		return nil, err
 	}
 
-	go consumer.run(time.Second*4, cached)
+	go consumer.run(time.Second, cached)
 
 	return consumer, nil
 }
@@ -153,7 +153,7 @@ func (consumer *consumerImpl) run(duration time.Duration, cached int) {
 			continue
 		}
 
-		consumer.DebugF("consumer(%s:%s) poll: offset(%d) consumer offset(%d) cached offset(%d)", consumer.topic, consumer.name, offset, consumerOffset, cachedOffset)
+		// consumer.DebugF("consumer(%s:%s) poll: offset(%d) consumer offset(%d) cached offset(%d)", consumer.topic, consumer.name, offset, consumerOffset, cachedOffset)
 
 		if cachedOffset > consumerOffset {
 			consumerOffset = cachedOffset
