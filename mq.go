@@ -328,8 +328,25 @@ func initdb(db *goleveldb.DB) error {
 
 var broker *brokerImpl
 
+var once sync.Once
+
 func init() {
-	broker = newBorker()
 	// register driver
-	mq.OpenDriver("leveldb", broker.NewConsumer, broker.NewProducer)
+	mq.OpenDriver("leveldb", func(config config.Config) (mq.Consumer, error) {
+
+		once.Do(func() {
+			broker = newBorker()
+		})
+
+		return broker.NewConsumer(config)
+
+	}, func(config config.Config) (mq.Producer, error) {
+
+		once.Do(func() {
+			broker = newBorker()
+		})
+
+		return broker.NewProducer(config)
+
+	})
 }
