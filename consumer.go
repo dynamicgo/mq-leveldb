@@ -131,6 +131,7 @@ func (consumer *consumerImpl) run(duration time.Duration, cached int) {
 	var cachedOffset int64
 
 	for range ticker.C {
+	C:
 		trans, err := consumer.db.OpenTransaction()
 		if err != nil {
 			consumer.ErrorF("consumer pull create leveldb transaction err %s", err)
@@ -208,6 +209,8 @@ func (consumer *consumerImpl) run(duration time.Duration, cached int) {
 		}
 
 		cachedOffset = consumerOffset + int64(len(records))
+
+		goto C
 
 	}
 }
